@@ -1,7 +1,7 @@
 # Indian Currency Note Detection using YOLO11
 
 ## Project Overview
-This project uses YOLO11 to detect Indian currency notes in real time through a webcam.
+This project uses a custom-trained YOLO11 model to detect Indian currency notes in real time using a webcam.
 
 ## Supported Currency Notes
 - ₹10
@@ -16,20 +16,22 @@ This project uses YOLO11 to detect Indian currency notes in real time through a 
 - YOLO11
 - OpenCV
 - Ultralytics
-- PyTorch
+- ONNX
 
 ## Features
-- Real-time currency detection.
+- Real-time currency note detection.
 - Webcam-based detection.
-- Custom-trained YOLO11 model.
+- Detects six Indian currency denominations.
+- Displays bounding boxes and confidence scores.
+- ONNX model for inference.
 
 ## Model Performance
-- Validation Precision: 97.2%
-- Validation Recall: 97.7%
-- Validation mAP50: 99.5%
-- Validation mAP50-95: 91%
+- Precision: 97.2%
+- Recall: 97.7%
+- mAP50: 99.5%
+- mAP50-95: 91%
 
-*Note: Metrics are based on a small validation dataset and do not guarantee real-world accuracy.*
+*Note: These metrics are based on a small validation dataset and do not guarantee real-world accuracy.*
 
 ## Installation
 
@@ -41,22 +43,31 @@ pip install -r requirements.txt
 
 ## How to Run
 
+Download `best.onnx` from the v1.0 Release and place it inside the `weights` folder.
+
+Run:
+
 ```bash
-python webcam.py
+python test.py
 ```
 
-Make sure your webcam is connected.
+Make sure your webcam is connected. Press `q` to close the webcam window.
 
-Press `q` to close the webcam window.
+## Training
+
+Training code is available in `train.py`.
+
+The training dataset is available as `dataset.zip` in the v1.0 Release.
 
 ## Project Files
-- `webcam.py` – Webcam detection code.
-- `best.pt` – Trained YOLO11 model.
-- `data.yaml` – Dataset configuration.
-- `requirements.txt` – Required Python libraries.
+- `test.py` – Webcam currency detection.
+- `train.py` – YOLO11 model training.
+- `requirements.txt` – Required Python packages.
+- `weights/best.onnx` – Trained ONNX model (download from Release).
+- `dataset.zip` – Training dataset (download from Release).
 
-## Dataset
-The training dataset is not included in this repository.
+## Release
+Download the model and dataset from the [v1.0 Release](../../releases/tag/v1.0).
 
 ## Author
-**Vishnu Priyan K**
+Vishnu Priyan K
